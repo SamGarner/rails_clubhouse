@@ -3,7 +3,7 @@
 <% if @posts.count.zero? %>
   <h5>There are currently no posts in the clubhouse.</h5>
 <% else %>
-  <%= @posts.each do |post| %>
-    <%= post.body %>
+  <% @posts.each do |post| %>
+    <%= post.body %><br><br>
   <% end %>
 <% end %>

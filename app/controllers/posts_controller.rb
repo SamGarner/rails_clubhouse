@@ -8,9 +8,9 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(whitelisted_post_params)
+    @post = Post.new(body: params[:post][:body])
     if @post.save
-      redirect_to root
+      redirect_to root_path
     else
       render :new
     end
