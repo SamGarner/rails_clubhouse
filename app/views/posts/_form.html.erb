@@ -1,0 +1,5 @@
+<%= form_with model: @post do |form| %>
+  <%= form.label :body, "Post content:" %><br>
+  <%= form.text_field :body %><br>
+  <%= form.submit "publish post" %>
+<% end %>
