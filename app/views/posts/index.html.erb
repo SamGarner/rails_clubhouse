@@ -9,6 +9,9 @@
   <% end %>
 <% else %>
   <% @posts.each do |post| %>
-    <%= post.body %><br><br>
+    <%= post.body %><br>
+    <!-- using erb for the text below so that formatting is consistent -->
+    <%= "-login to view author..." %><br><br> 
+    <!-- <p>-login to view author...</p><br><br> -->
   <% end %>
 <% end %>
