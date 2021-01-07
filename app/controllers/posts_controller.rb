@@ -8,7 +8,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(body: params[:post][:body])
+    # @post = Post.new(body: params[:post][:body])
+    @post = Post.new(whitelisted_post_params)
     if @post.save
       redirect_to root_path
     else
