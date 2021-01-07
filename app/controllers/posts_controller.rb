@@ -1,15 +1,17 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+
   def index
     @posts = Post.all
   end
 
   def new
-    @post = Post.new
+    @post = current_user.posts.build
   end
 
   def create
     # @post = Post.new(body: params[:post][:body])
-    @post = Post.new(whitelisted_post_params)
+    @post = current_user.posts.build(whitelisted_post_params)
     if @post.save
       redirect_to root_path
     else

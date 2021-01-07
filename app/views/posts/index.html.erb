@@ -2,6 +2,11 @@
 
 <% if @posts.count.zero? %>
   <h5>There are currently no posts in the clubhouse.</h5>
+<% elsif user_signed_in? %>
+  <% @posts.each do |post| %>
+    <%= post.body %>
+    <%= post.user.username %><br><br>
+  <% end %>
 <% else %>
   <% @posts.each do |post| %>
     <%= post.body %><br><br>
